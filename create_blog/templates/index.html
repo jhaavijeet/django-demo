@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+    <div class="header">
+        {% if user.is_authenticated %}
+            <h1>Welcome, {{user.username}}</h1>
+            
+        {% else %}
+            <h1>Welcome to the Blogs</h1>
+            
+        {% endif %}
+    </div>
+    <div class="content">
+        {% for product in products %}
+            <div class="row">
+                <a href="posts/{{product.id}}">
+                    <h2>{{product.title}}</h2>
+                    <h5>{{product.created_at}}</h5>
+                    <p>{{product.body|truncatewords:20}}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% include 'footer.html' %}

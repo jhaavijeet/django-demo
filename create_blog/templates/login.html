@@ -1,0 +1,26 @@
+{% include 'header.html' %}
+    <style>
+        .nav-right{
+            display: none;
+        }
+    </style>
+    <div class="area">
+        <div class="card" id="card">
+            <div id="form">
+                <h1>Enter details below :) </h1>
+                {% for message in messages %}
+                    <strong style="color: red;">{{message}}</strong>
+                {% endfor %}
+                <form action="login" method="post">
+                    {% csrf_token %}
+                    <h3>Enter username : </h3>
+                    <input type="text" name="username" placeholder="username">
+                    <h3>Enter password : </h3>
+                    <input type="password" name="password" placeholder="password"><br><br>
+                    <input type="submit" id="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="register">Register</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% include 'footer.html' %}
